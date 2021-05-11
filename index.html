@@ -12,43 +12,97 @@
   <title>Maze Notepad Collections</title>
 </head>
 <body>
-  <div style="max-width: 768px; margin: 0 auto; padding: 2em;">
-    <h1>Maze Notepad Collections</h1>
-    <iframe width="768" height="432" src="https://www.youtube.com/embed/Do9eluUlKQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="hr"></div>
-    <h2>Maze Notepad</h2>
-    <p>
-      Maze Notepad is a Progressive Web App that lets users quickly and easily build and share grid-based mazes.
-    </p>
-    <h3>Features</h3>
-    <ul>
-      <li>Customize maze shapes (within a 64x64 grid).</li>
-      <li>Add up to 7 sets of start/end points.</li>
-      <li>Add custom paths.</li>
-      <li>Solve mazes and view their solutions.</li>
-      <li>Save and load maze files.</li>
-      <li>Export mazes (and their solutions) as images.</li>
-      <li>Upload mazes to the online Maze Gallery.</li>
-    </ul>
-    <div class="icon-bar">
-      <a href="https://max-y-huang.github.io/maze-notepad-js" target="_blank"><i class="fas fa-globe"></i></a>
-      <a href="https://github.com/max-y-huang/maze-notepad-js" target="_blank"><i class="fab fa-github"></i></a>
+  <img class="bg" src="bg.png" draggable="false" />
+  <div style="background-color: #202020;">
+    <div class="header">
+      <div class="title">
+        <h1>Maze Notepad Collections</h1>
+        <h3>Made By <a href="https://max-y-huang.github.io" target="_blank">Max Huang</a></h3>
+        <button style="margin-top: 2em;" onclick="viewDemo()"><i class="fas fa-play"></i>View Demo Video</button>
+      </div>
+      <video class="demo-video" controls>
+        <source src="demo.mp4" type="video/mp4">
+        <!-- <iframe src="https://www.youtube.com/embed/Do9eluUlKQg" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+      </video>
     </div>
-    <div class="hr"></div>
-    <h2>Maze Gallery</h2>
-    <p>
-      Maze Gallery is a website for users to browse Maze Notepad mazes.
-    </p>
-    <h3>Features</h3>
-    <ul>
-      <li>Filter mazes by name and tags.</li>
-      <li>View mazes' descriptions and creators.</li>
-      <li>Open mazes in Maze Notepad.</li>
-    </ul>
-    <div class="icon-bar">
-      <a href="https://max-y-huang.github.io/maze-notepad-gallery" target="_blank"><i class="fas fa-globe"></i></a>
-      <a href="https://github.com/max-y-huang/maze-notepad-gallery" target="_blank"><i class="fab fa-github"></i></a>
+    <div class="section">
+      <h2>Maze Notepad</h2>
+      <p>
+        Maze Notepad is a Progressive Web App that lets users quickly and easily build and share grid-based mazes.
+      </p>
+      <h3>Features</h3>
+      <ul>
+        <li>Customize maze shapes (within a 64x64 grid).</li>
+        <li>Add up to 7 sets of start/end points.</li>
+        <li>Add custom paths.</li>
+        <li>Solve mazes and view their solutions.</li>
+        <li>Save and load maze files.</li>
+        <li>Export mazes (and their solutions) as images.</li>
+        <li>Upload mazes to the online Maze Gallery.</li>
+      </ul>
+      <div class="icon-bar">
+        <a href="https://max-y-huang.github.io/maze-notepad-js" target="_blank"><i class="fas fa-globe"></i></a>
+        <a href="https://github.com/max-y-huang/maze-notepad-js" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="hr"></div>
+      <h2>Maze Gallery</h2>
+      <p>
+        Maze Gallery is a website for users to browse Maze Notepad mazes.
+      </p>
+      <h3>Features</h3>
+      <ul>
+        <li>Filter mazes by name and tags.</li>
+        <li>View mazes' descriptions and creators.</li>
+        <li>Open mazes in Maze Notepad.</li>
+      </ul>
+      <div class="icon-bar">
+        <a href="https://max-y-huang.github.io/maze-notepad-gallery" target="_blank"><i class="fas fa-globe"></i></a>
+        <a href="https://github.com/max-y-huang/maze-notepad-gallery" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="hr"></div>
+      <h3>Technology Stack</h3>
+      <ul>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>Express</li>
+        <li>MongoDB</li>
+        <li>AWS</li>
+        <li>Sass, CSS</li>
+        <li>p5.js</li>
+      </ul>
+      <h3>How the Maze Generation Works</h3>
+      <p>
+        For the maze generation algorithm, I wanted to ensure that the following criteria are met:
+      </p>
+      <ul>
+        <li>Any two points on the maze are connected by a unique path.</li>
+        <li>The user can overwrite paths, given the above constraint is met.</li>
+      </ul>
+      <p>
+        I decided to represent the maze as a graph, where (possible) intersections are represented by nodes and paths connecting
+        them are represented by edges. I created a &ldquo;base maze&rdquo; that contains all physically possible paths, with each
+        path having a random weight.
+      </p>
+      <p>
+        To generate a maze, I applied <a href="https://en.wikipedia.org/wiki/Kruskal's_algorithm" target="_blank">Kruskal's algorithm</a>
+        using a disjoint set ADT. The resulting maze is a tree so it will not contain any cycles, ensuring that the path
+        between any two nodes is unique. Assuming that the maze is contiguous, there will be an edge between any two nodes.
+      </p>
+      <p>
+        Additionally, the random weights in the &ldquo;base maze&rdquo; determine which of its paths are present in the
+        generated maze, randomizing its pattern. Paths can also be given low weights to prioritize them in the maze generation
+        algorithm, allowing for users to overwrite existing paths.
+      </p>
     </div>
   </div>
+  <script>
+    const demoVideoDOM = document.querySelector('.demo-video');
+    const viewDemo = () => {
+      demoVideoDOM.classList.add('visible');
+      demoVideoDOM.play();
+    }
+  </script>
 </body>
 </html>

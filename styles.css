@@ -40,12 +40,45 @@ body {
   font-size: 17px;
 }
 
+a {
+  color: #66d3ff;
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 2px solid currentColor;
+}
+
 p, ul {
   line-height: 1.7;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  color: #f1f1f1;
+  font-size: inherit;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0.5em 0.8em;
+  margin: 0;
+  box-shadow: 8px 8px #101010;
+  border: 3px solid rgb(0, 122, 204);
+}
+button:hover {
+  background-color: #202020;
+}
+
+button > i {
+  margin-right: 0.8em;
 }
 
 .hr {
@@ -58,8 +91,92 @@ h1, h2, h3, h4 {
   font-size: 1.8em;
 }
 
-.icon-bar a {
-  color: #66d3ff;
-  text-decoration: none;
+.icon-bar > a {
   padding: 0.2em;
+  color: inherit;
+}
+.icon-bar a:hover {
+  border: none;
+  color: #66d3ff;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  image-rendering: pixelated;
+  opacity: 0.12;
+  user-select: none;
+}
+
+.header {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 3px dashed rgb(0, 122, 204);
+  background-color: rgba(0, 122, 204, 0.2);
+  position: relative;
+}
+
+.header > .title {
+  text-align: center;
+}
+
+.header > .demo-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  transition: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.header > .demo-video.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-out;
+  pointer-events: auto;
+}
+
+.section {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 2em;
+  position: relative;
+}
+
+.section > .hr {
+  margin-left: -1em;
+  margin-right: -1em;
+}
+
+.youtube {
+  position: relative;
+  width: 768px;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 56.25%;
+}
+
+.youtube > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1b1b1b;
+}
+
+.youtube > div > iframe {
+  width: 100%;
+  height: 100%;
 }
