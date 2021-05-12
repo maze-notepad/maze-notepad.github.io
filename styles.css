@@ -72,13 +72,18 @@ button {
   margin: 0;
   box-shadow: 8px 8px #101010;
   border: 3px solid rgb(0, 122, 204);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 button:hover {
   background-color: #202020;
 }
 
-button > i {
-  margin-right: 0.8em;
+button > img {
+  height: 1.5em;
+  margin-right: 0.6em;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(320%) hue-rotate(78deg) brightness(117%) contrast(89%);
 }
 
 .hr {
@@ -88,16 +93,29 @@ button > i {
 
 .icon-bar {
   display: flex;
-  font-size: 1.8em;
+  font-size: 2.2em;
+  align-items: center;
 }
 
 .icon-bar > a {
-  padding: 0.2em;
-  color: inherit;
+  display: flex;
+  height: 1em;
+  width: 1.3em;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-bar > a > img {
+  height: 1em;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(320%) hue-rotate(78deg) brightness(117%) contrast(89%);
+  margin: 0;
+  padding: 0;
 }
 .icon-bar a:hover {
   border: none;
-  color: #66d3ff;
+  filter: brightness(0) saturate(100%) invert(63%) sepia(88%) saturate(416%) hue-rotate(172deg) brightness(106%) contrast(101%);
 }
 
 .bg {
