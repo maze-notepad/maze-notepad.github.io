@@ -72,7 +72,7 @@ h1 {
   margin: 4em auto 0 auto;
   border: 3px solid #66d3ff;
   /* border: 3px solid rgb(0, 122, 204); */
-  border-radius: 8px;
+  border-radius: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,6 +85,7 @@ h1 {
   height: 1.5em;
   margin-right: 0.6em;
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(320%) hue-rotate(78deg) brightness(117%) contrast(89%);
+  user-select: none;
 }
 .demo-button:hover > img {
   filter: brightness(0) saturate(100%) invert(63%) sepia(88%) saturate(416%) hue-rotate(172deg) brightness(106%) contrast(101%);
@@ -111,6 +112,7 @@ h1 {
   justify-content: center;
   align-items: center;
   position: relative;
+  user-select: none;
 }
 .icon-bar > a:not(:last-child) {
   margin-right: 0.2em;
