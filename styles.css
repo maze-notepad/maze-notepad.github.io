@@ -143,15 +143,15 @@ h1 {
 }
 
 .bg {
+  pointer-events: none;
+  background: url('assets/img/bg.png') 50% / cover;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
   image-rendering: pixelated;
   opacity: 0.12;
-  user-select: none;
 }
 
 .header {
