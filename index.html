@@ -22,8 +22,6 @@
       </div>
       <video class="demo-video" controls>
         <source src="assets/demo.mp4" type="video/mp4">
-        <!-- <iframe src="https://www.youtube.com/embed/Do9eluUlKQg" title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
       </video>
     </div>
     <div class="section">
@@ -103,6 +101,14 @@
       demoVideoDOM.classList.add('visible');
       demoVideoDOM.play();
     }
+
+    // Autoplay video on GET parameter request.
+    addEventListener('load', () => {
+      let params = new URLSearchParams(location.search);
+      if (params.get('autoplay') === 'on') {
+        viewDemo();
+      }
+    })
   </script>
 </body>
 </html>
