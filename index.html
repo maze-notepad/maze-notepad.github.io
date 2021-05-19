@@ -99,6 +99,7 @@
     const demoVideoDOM = document.querySelector('.demo-video');
     const viewDemo = () => {
       demoVideoDOM.classList.add('visible');
+      demoVideoDOM.muted = true;
       demoVideoDOM.play();
     }
 

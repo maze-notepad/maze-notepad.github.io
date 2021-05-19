@@ -1,0 +1,13 @@
+{
+  "name": "WEBSITE-NAME",
+  "version": "1.0.0",
+  "description": "WEBSITE-DESCRIPTION",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "AUTHOR",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ip": "^1.1.5"
+  }
+}
